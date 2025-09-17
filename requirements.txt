@@ -1,3 +1,4 @@
+selenium
 django
 gunicorn
 whitenoise
