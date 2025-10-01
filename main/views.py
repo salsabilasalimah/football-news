@@ -181,8 +181,8 @@ def show_json_by_id(request, news_id):
 @csrf_exempt
 @require_POST
 def add_news_entry_ajax(request):
-    title = request.POST.get("title")
-    content = request.POST.get("content")
+    title = strip_tags(request.POST.get("title"))
+    content = strip_tags(request.POST.get("content"))
     category = request.POST.get("category")
     thumbnail = request.POST.get("thumbnail")
     is_featured = request.POST.get("is_featured") == 'on'  # checkbox handling
@@ -199,4 +199,3 @@ def add_news_entry_ajax(request):
     new_news.save()
 
     return HttpResponse(b"CREATED", status=201)
-

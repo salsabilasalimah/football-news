@@ -6,10 +6,6 @@ class NewsForm(ModelForm):
     class Meta:
         model = News
         fields = ["title", "content", "category", "thumbnail", "is_featured"]
-
-class NewsForm(ModelForm):
-    class Meta:
-        ...
     
     def clean_title(self):
         title = self.cleaned_data["title"]
